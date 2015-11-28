@@ -1,0 +1,11 @@
+- clean: ['~']
+
+- link:
+    ~/.gitconfig: gitconfig
+    ~/.zshrc: zshrc
+    ~/.xinitrc: xinitrc
+    ~/.i3:
+        path: i3/
+        create: true
+
+
