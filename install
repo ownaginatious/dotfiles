@@ -1,6 +1,12 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 set -e
+
+if [ ! -d ~/.oh-my-zsh ]; then
+    echo "Resolving the oh-my-zsh dependency..."
+    sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    rm -f ~/.zshrc
+fi  
 
 CONFIG="install.conf.yaml"
 DOTBOT_DIR="dotbot"

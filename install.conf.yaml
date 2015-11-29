@@ -2,10 +2,10 @@
 
 - link:
     ~/.gitconfig: gitconfig
-    ~/.zshrc: zshrc
-    ~/.xinitrc: xinitrc
+    ~/.zshrc: zsh/zshrc
     ~/.i3:
         path: i3/
         create: true
 
-
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
