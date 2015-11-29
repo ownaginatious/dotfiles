@@ -2,9 +2,14 @@
 
 - link:
     ~/.gitconfig: gitconfig
-    ~/.zshrc: zsh/zshrc
+    ~/.zshrc:
+        path: zsh/zshrc
+        force: true
     ~/.i3:
         path: i3/
+        create: true
+    ~/.dotfiles:
+        path: .
         create: true
 
 - shell:
