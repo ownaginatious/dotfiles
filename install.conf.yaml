@@ -9,6 +9,7 @@
         path: i3/
         create: true
     ~/.nanorc: nanorc
+    ~/.tvnamer.json: tvnamer.json
     ~/.dotfiles:
         path: .
         create: true
