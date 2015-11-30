@@ -2,10 +2,23 @@
 
 set -e
 
-if [ ! -d ~/.oh-my-zsh ]; then
+ZSH_DIR=~/.oh-my-zsh
+CHECK_ZSH_INSTALLED=$(grep /zsh$ /etc/shells | wc -l)
+if [ ! $CHECK_ZSH_INSTALLED -ge 1 ]; then
+    printf "${YELLOW}Zsh is not installed!${NORMAL} Please install zsh first!\n"
+    exit 1
+fi
+
+if [ ! -d "${ZSH_DIR}" ]; then
     echo "Resolving the oh-my-zsh dependency..."
-    sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-fi  
+    env git clone --depth=1 https://github.com/robbyrussell/oh-my-zsh.git "${ZSH_DIR}" || {
+        printf "${RED}Error: git clone of oh-my-zsh repo failed\n"
+        exit 1
+    }
+    echo "oh-my-zsh has been successfully installed!"
+else
+    printf "${GREEN}oh-my-zsh is already installed\n"
+fi
 
 CONFIG="install.conf.yaml"
 DOTBOT_DIR="dotbot"
@@ -17,3 +30,12 @@ cd "${BASEDIR}"
 git submodule update --init --recursive "${DOTBOT_DIR}"
 
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
+
+# If this user's login shell is not already "zsh", attempt to switch.
+TEST_CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
+if [ "${TEST_CURRENT_SHELL}" != "zsh" ]; then
+    # Let's assume zsh is installed since we will probably never ever use cygwin
+    printf "${BLUE}Time to change your default shell to zsh!${NORMAL}\n"
+    chsh -s $(grep /zsh$ /etc/shells | tail -1)
+fi
+env zsh
