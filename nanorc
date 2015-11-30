@@ -1,0 +1,12 @@
+set mouse
+set regexp
+set tabsize 4
+set tabstospaces
+set nowrap
+set softwrap
+
+syntax "java" "java"
+color brightmagenta "private|public|class|static|void|import|package|throws"
+color brightmagenta "[^a-zA-Z](protected|final|if|else|for|while|do|try|catch)[^a-zA-Z]"
+color brightblue "[^a-zA-Z](int|long|boolean|char|float)[^a-zA-Z]"
+color yellow "@.+"
