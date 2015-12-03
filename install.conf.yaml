@@ -8,6 +8,8 @@
     ~/.i3:
         path: i3/
         create: true
+    ~/.tmux.conf:
+        path: tmux.conf
     ~/.nanorc: nanorc
     ~/.tvnamer.json: tvnamer.json
     ~/.dotfiles:
