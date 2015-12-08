@@ -56,8 +56,6 @@ plugins=(git systemd archlinux virtualenvwrapper)
   export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-source $ZSH/oh-my-zsh.sh
-
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -81,10 +79,11 @@ source $ZSH/oh-my-zsh.sh
 #
 
 export WORKON_HOME=~/.virtualenvs
-. $(which virtualenvwrapper.sh)
 
 # Example aliases
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
 alias reloadzsh=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
 alias dot-update="~/.dotfiles/install && reloadzsh"
+
+source $ZSH/oh-my-zsh.sh
