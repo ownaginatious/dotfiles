@@ -4,6 +4,7 @@ set tabsize 4
 set tabstospaces
 set nowrap
 set softwrap
+set const
 
 # Nano will be annoying about failed includes otherwise
 set quiet
