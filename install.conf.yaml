@@ -11,6 +11,7 @@
     ~/.tmux.conf:
         path: tmux.conf
     ~/.nanorc: nanorc
+    ~/.vimrc: vimrc
     ~/.tvnamer.json: tvnamer.json
     ~/.dotfiles:
         path: .
