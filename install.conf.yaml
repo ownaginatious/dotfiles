@@ -8,6 +8,9 @@
     ~/.i3:
         path: i3/
         create: true
+    ~/.config/terminator/config:
+        path: terminator.conf
+        create: true
     ~/.tmux.conf:
         path: tmux.conf
     ~/.nanorc: nanorc
