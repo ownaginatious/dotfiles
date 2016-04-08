@@ -86,6 +86,7 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 alias reloadzsh=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
 alias dot-update="~/.dotfiles/install && reloadzsh"
 alias dot-upgrade="cd ~/.dotfiles && git pull; cd -; dot-update"
+alias archupdate="sudo pacman -Syu && pacaur --update"
 
 git-squish() {
     git reset --soft HEAD~$1 && git commit
