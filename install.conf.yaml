@@ -5,11 +5,14 @@
     ~/.zshrc:
         path: zsh/zshrc
         force: true
-    ~/.i3:
-        path: i3/
+    ~/.i3/config:
+        path: i3/i3.conf
         create: true
     ~/.config/terminator/config:
         path: terminator.conf
+        create: true
+    ~/.config/i3status/config:
+        path: i3/i3status.conf
         create: true
     ~/.tmux.conf:
         path: tmux.conf
