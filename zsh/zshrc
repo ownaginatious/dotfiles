@@ -89,7 +89,7 @@ alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias reloadzsh=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
 alias dot-update="~/.dotfiles/install && reloadzsh"
-alias dot-upgrade="cd ~/.dotfiles && git pull; cd -; dot-update"
+alias dot-upgrade="cd ~/.dotfiles && git pull && cd - && dot-update"
 alias archupdate="sudo pacman -Syu && pacaur --update"
 # Ask for SSH passwords only when executing SSH.
 alias ssh="start_keychain; \ssh"
