@@ -93,6 +93,7 @@ alias dot-upgrade="cd ~/.dotfiles && git pull && cd - && dot-update"
 alias archupdate="sudo pacman -Syu && pacaur --update"
 # Ask for SSH passwords only when executing SSH.
 alias ssh="start_keychain; \ssh"
+alias nano="vim" # ... it's for my own good
 
 git-squish() {
     git reset --soft HEAD~$1 && git commit
