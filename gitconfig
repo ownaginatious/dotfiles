@@ -3,3 +3,4 @@
 	email = dillondixon@gmail.com
 [core]
 	autocrlf = input
+	editor = vim
