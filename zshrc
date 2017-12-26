@@ -82,11 +82,18 @@ alias lsa='ls -a'
 
 # Git aliases
 alias ga="git add"
-alias gr="git rm"
+alias gr="git rm -r"
 alias gd="git diff"
 alias gpl="git pull origin \$(git_current_branch)"
 alias gps="git push origin \$(git_current_branch)"
 alias gst="git status"
+alias gm="git checkout master"
+alias gmu="_b=\$(git_current_branch); gm; gpl; git checkout \${_b}"
+alias gmub="gmu; gm; git checkout -b"
+alias gbr="git branch -m"
+alias gbd="git branch -d"
+alias gbdf="git branch -D"
+alias gl="git log"
 
 if [ -z "$SSH_CLIENT" ] && [ -z "$SSH_TTY" ]; then
   # Evaluate SSH keys once and only once.
