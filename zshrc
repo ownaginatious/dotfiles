@@ -10,8 +10,10 @@ setopt multios
 export HISTFILE=~/.zsh_history
 export HISTSIZE=999999999
 export SAVEHIST=$HISTSIZE
-
 setopt share_history
+
+# Let's increase efficiency with VI bindings.
+bindkey -v
 
 # Redefine FG and BG for all terminals so we can add *all* the colours.
 typeset -AHg FG BG
@@ -82,8 +84,8 @@ alias lsa='ls -a'
 alias ga="git add"
 alias gr="git rm"
 alias gd="git diff"
-alias gpl="git pull upstream \$(git_current_branch)"
-alias gps="git push upstream \$(git_current_branch)"
+alias gpl="git pull origin \$(git_current_branch)"
+alias gps="git push origin \$(git_current_branch)"
 alias gst="git status"
 
 if [ -z "$SSH_CLIENT" ] && [ -z "$SSH_TTY" ]; then
