@@ -2,22 +2,10 @@
 
 set -e
 
-ZSH_DIR=~/.oh-my-zsh
 CHECK_ZSH_INSTALLED=$(grep /zsh$ /etc/shells | wc -l)
 if [ ! $CHECK_ZSH_INSTALLED -ge 1 ]; then
     printf "${YELLOW}Zsh is not installed!${NORMAL} Please install zsh first!\n"
     exit 1
-fi
-
-if [ ! -d "${ZSH_DIR}" ]; then
-    echo "Resolving the oh-my-zsh dependency..."
-    env git clone --depth=1 https://github.com/robbyrussell/oh-my-zsh.git "${ZSH_DIR}" || {
-        printf "${RED}Error: git clone of oh-my-zsh repo failed\n"
-        exit 1
-    }
-    echo "oh-my-zsh has been successfully installed!"
-else
-    printf "${GREEN}oh-my-zsh is already installed\n"
 fi
 
 CONFIG="install.conf.yaml"

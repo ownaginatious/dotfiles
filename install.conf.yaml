@@ -3,7 +3,7 @@
 - link:
     ~/.gitconfig: gitconfig
     ~/.zshrc:
-        path: zsh/zshrc
+        path: zshrc
         force: true
     ~/.i3/config:
         path: i3/i3.conf
