@@ -86,5 +86,7 @@ alias gpl="git pull upstream \$(git_current_branch)"
 alias gps="git push upstream \$(git_current_branch)"
 alias gst="git status"
 
-# Evaluate SSH keys once and only once.
-eval $(keychain --eval --quiet ~/.ssh/id_rsa)
+if [ -z "$SSH_CLIENT" ] && [ -z "$SSH_TTY" ]; then
+  # Evaluate SSH keys once and only once.
+  eval $(keychain --eval --quiet ~/.ssh/id_rsa)
+fi
