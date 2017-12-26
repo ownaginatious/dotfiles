@@ -1,7 +1,12 @@
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/bin"
 
-# Location of virtualenvs for virtualenvwrapper.
-export WORKON_HOME=~/.virtualenvs
+venvwrapper_bin="$(command -v virtualenvwrapper.sh)"
+if [ ! -z "${venvwrapper_bin}" ]
+then
+  # Location of virtualenvs for virtualenvwrapper.
+  export WORKON_HOME=~/.virtualenvs
+  source "${venvwrapper_bin}"
+fi
 
 setopt auto_cd  # Try interpreting the command as a directory if it doesn't exist.
 setopt multios
