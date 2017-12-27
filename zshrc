@@ -20,6 +20,9 @@ setopt share_history
 # Let's increase efficiency with VI bindings.
 bindkey -v
 
+# Enable the reverse history search. It's a bit more useful than the built-in VI mode one.
+bindkey "^R" history-incremental-search-backward
+
 # Redefine FG and BG for all terminals so we can add *all* the colours.
 typeset -AHg FG BG
 
@@ -99,6 +102,7 @@ alias gbr="git branch -m"
 alias gbd="git branch -d"
 alias gbdf="git branch -D"
 alias gl="git log"
+alias gcm="git commit -m "
 
 if [ -z "$SSH_CLIENT" ] && [ -z "$SSH_TTY" ]; then
   # Evaluate SSH keys once and only once.
