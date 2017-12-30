@@ -32,6 +32,8 @@ for color in {000..255}; do
     BG[$color]="%{[48;5;${color}m%}"
 done
 
+# Awesome module for batch renaming files.
+autoload -U zmv
 
 function git_current_branch() {
   local ref
