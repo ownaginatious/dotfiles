@@ -108,7 +108,13 @@ alias dot-update="~/.dotfiles/install && reloadzsh"
 alias dot-upgrade="cd ~/.dotfiles && git pull && cd - && dot-update"
 alias archupdate="sudo pacman -Syu && pacaur --update"
 alias nano="vim" # ... it's for my own good
-alias ls='ls --color=auto'
+
+if [[ "$(uname -s)" =~ 'Darwin.*' ]]; then
+  alias ls='ls -G'
+else
+  alias ls='ls --color=auto'
+fi
+
 alias lsa='ls -a'
 
 # Git aliases
