@@ -134,7 +134,8 @@ alias gbdf="git branch -D"
 alias gl="git log"
 alias gcm="git commit -m "
 
-if [ -z "$SSH_CLIENT" ] && [ -z "$SSH_TTY" ]; then
+if [ -z "$(pgrep memento)" ] && [ -z "$SSH_CLIENT" ] && [ -z "$SSH_TTY" ]; then
   # Evaluate SSH keys once and only once.
   eval $(keychain --eval --quiet ~/.ssh/id_rsa)
 fi
+
