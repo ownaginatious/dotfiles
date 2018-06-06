@@ -107,7 +107,7 @@ alias zshconfig="vim ~/.zshrc"
 alias reloadzsh=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
 alias dot-update="~/.dotfiles/install && reloadzsh"
 alias dot-upgrade="cd ~/.dotfiles && git pull && cd - && dot-update"
-alias archupdate="sudo pacman -Syu && pacaur --update"
+alias archupdate="yay -Syu"
 alias nano="vim" # ... it's for my own good
 
 if [[ "$(uname -s)" =~ 'Darwin.*' ]]; then
