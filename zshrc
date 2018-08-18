@@ -1,4 +1,4 @@
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/bin"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/usr/lib/jvm/default/bin:/bin"
 export GOPATH="$HOME/git/.go/"
 export EDITOR="vim"
 
@@ -20,6 +20,8 @@ export SAVEHIST=$HISTSIZE
 setopt share_history
 
 bindkey -e # use emacs key bindings
+# fix the "delete" button with ZSH
+bindkey "^[[3~" delete-char
 
 # Redefine FG and BG for all terminals so we can add *all* the colours.
 typeset -AHg FG BG
