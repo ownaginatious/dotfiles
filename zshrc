@@ -80,12 +80,11 @@ PROMPT='%{$fg_bold[yellow]%}%n%{$fg_bold[white]%}:%m%{$reset_color%}%{$fg[white]
 RPROMPT='$(git_prompt_info)'
 
 # Example aliases
-alias zshconfig="vim ~/.zshrc"
 alias reloadzsh=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
 alias dot-update="~/.dotfiles/install && reloadzsh"
-alias dot-upgrade="cd ~/.dotfiles && git pull && cd - && dot-update"
+alias dot-upgrade="pushd ~/.dotfiles && git pull && popd && dot-update"
 alias archupdate="yay -Syu"
-alias nano="vim" # ... it's for my own good
+alias nano="vim"
 
 if [[ "$(uname -s)" =~ 'Darwin.*' ]]; then
   alias ls='ls -G'
@@ -110,6 +109,7 @@ alias gbd="git branch -d"
 alias gbdf="git branch -D"
 alias gl="git log"
 alias gcm="git commit -m "
+alias gca="git commit --amend"
 
 if [ -z "$(command -v memento)" ] && [ -z "$SSH_CLIENT" ] && [ -z "$SSH_TTY" ]; then
   # Evaluate SSH keys once and only once.
