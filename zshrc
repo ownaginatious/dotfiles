@@ -19,9 +19,8 @@ export HISTSIZE=999999999
 export SAVEHIST=$HISTSIZE
 setopt share_history
 
-bindkey -e # use emacs key bindings
-# fix the "delete" button with ZSH
-bindkey "^[[3~" delete-char
+bindkey -v # use vim key bindings
+bindkey '^R' history-incremental-search-backward
 
 # Redefine FG and BG for all terminals so we can add *all* the colours.
 typeset -AHg FG BG
