@@ -5,14 +5,17 @@
     ~/.zshrc:
         path: zshrc
         force: true
-    ~/.i3/config:
-        path: i3/i3.conf
-        create: true
     ~/.config/terminator/config:
         path: terminator.conf
         create: true
-    ~/.config/i3status/config:
-        path: i3/i3status.conf
+    ~/.config/sway/py3status.conf:
+        path: sway/py3status.conf
+        create: true
+    ~/.config/sway/config:
+        path: sway/config
+        create: true
+    ~/.config/sway/background.png:
+        path: sway/background.png
         create: true
     ~/.tmux.conf:
         path: tmux.conf
