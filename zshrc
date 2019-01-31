@@ -1,5 +1,5 @@
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/usr/lib/jvm/default/bin:/bin"
-export GOPATH="$HOME/git/.go/"
+export GOPATH="$HOME/.go/"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/usr/lib/jvm/default/bin:/bin:$GOPATH/bin"
 export EDITOR="vim"
 
 venvwrapper_bin="$(command -v virtualenvwrapper.sh)"
