@@ -1,14 +1,4 @@
-export GOPATH="$HOME/.go/"
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/usr/lib/jvm/default/bin:/bin:$GOPATH/bin"
 export EDITOR="vim"
-
-venvwrapper_bin="$(command -v virtualenvwrapper.sh)"
-if [ ! -z "${venvwrapper_bin}" ]
-then
-  # Location of virtualenvs for virtualenvwrapper.
-  export WORKON_HOME=~/.virtualenvs
-  source "${venvwrapper_bin}"
-fi
 
 setopt auto_cd  # Try interpreting the command as a directory if it doesn't exist.
 setopt multios
@@ -81,10 +71,6 @@ RPROMPT='$(git_prompt_info)'
 
 # Example aliases
 alias reloadzsh=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
-alias dot-update="~/.dotfiles/install && reloadzsh"
-alias dot-upgrade="pushd ~/.dotfiles && git pull && popd && dot-update"
-alias archupdate="yay -Syu"
-alias nano="vim"
 
 if [[ "$(uname -s)" =~ 'Darwin.*' ]]; then
   alias ls='ls -G'
@@ -111,8 +97,11 @@ alias gl="git log"
 alias gcm="git commit -m "
 alias gca="git commit --amend"
 
-if [ -z "$(command -v memento)" ] && [ -z "$SSH_CLIENT" ] && [ -z "$SSH_TTY" ]; then
-  # Evaluate SSH keys once and only once.
-  eval $(keychain --eval --quiet ~/.ssh/id_rsa)
+# Load any extra custom configuration for this machine.
+if [ -d ~/.dots-extras ]; then
+  find ~/.dots-extras -type f | while read file
+  do
+    echo $file
+    source "$file"
+  done
 fi
-
