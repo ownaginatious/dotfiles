@@ -69,9 +69,6 @@ PROMPT='%{$fg_bold[yellow]%}%n%{$fg_bold[white]%}:%m%{$reset_color%}%{$fg[white]
 %{$fg_bold[green]%}→%{$reset_color%} '
 RPROMPT='$(git_prompt_info)'
 
-# Example aliases
-alias reloadzsh=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
-
 if [[ "$(uname -s)" =~ 'Darwin.*' ]]; then
   alias ls='ls -G'
 else
@@ -97,9 +94,25 @@ alias gl="git log"
 alias gcm="git commit -m "
 alias gca="git commit --amend"
 
+# Update config
+
+function dot-sync {
+  ~/.dotfiles/install.sh "$@"
+}
+
+function dot-update {
+  pushd ~/.dotfiles > /dev/null
+  gmu
+  dot-sync "$@"
+  popd > /dev/null
+}
+
+# Example aliases
+alias reloadzsh=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
+
 # Load any extra custom configuration for this machine.
-if [ -d ~/.dots-extras ]; then
-  find ~/.dots-extras -type f | while read file
+if [ -d ~/.zshrc-extras ]; then
+  find -L ~/.zshrc-extras -type f | while read file
   do
     source "$file"
   done
