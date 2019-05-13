@@ -101,7 +101,6 @@ alias gca="git commit --amend"
 if [ -d ~/.dots-extras ]; then
   find ~/.dots-extras -type f | while read file
   do
-    echo $file
     source "$file"
   done
 fi
