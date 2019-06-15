@@ -164,7 +164,8 @@ bar {
         status_command py3status -c ~/.config/sway/py3status.conf
 }
 
-output "*" background ~/.config/sway/background.png fill
+exec config_egpu_displays
+exec sway output "*" background ~/.config/sway/background.png fill
 
 exec lxsession
 exec swayidle \
