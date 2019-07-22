@@ -88,12 +88,12 @@ alias gm="git checkout master"
 alias gmu="_b=\$(git_current_branch); gm; gpl; git checkout \${_b}"
 alias gmub="gmu; gm; git checkout -b"
 alias gb="git branch"
-alias gbr="git branch -m"
-alias gbd="git branch -d"
-alias gbdf="git branch -D"
+alias gbm="git branch -m"
+alias gbd="git branch -D"
 alias gl="git log"
 alias gcm="git commit -m "
 alias gca="git commit --amend"
+alias dd="dd status=progress "
 
 # Update config
 
