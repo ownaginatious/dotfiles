@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 function error {
   printf "\033[0;31m${1}\033[0m\n"
@@ -37,7 +37,7 @@ function link {
     if [ -e "${target}" ]; then
       echo " -> Already exists"
     else
-      ln -s "$(realpath ${source})" "$(realpath ${target})"
+      ln -s "$(realpath ${source})" "${target}"
       echo " -> Symlink created"
     fi
   fi

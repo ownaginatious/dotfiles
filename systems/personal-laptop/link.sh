@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Include everything in the common config
 pushd ../common > /dev/null
