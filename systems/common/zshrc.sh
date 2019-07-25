@@ -94,6 +94,7 @@ alias gl="git log"
 alias gcm="git commit -m "
 alias gca="git commit --amend"
 alias dd="dd status=progress "
+alias tmux="tmux -u"
 
 # Update config
 
