@@ -21,7 +21,7 @@ for color in {000..255}; do
     BG[$color]="%{[48;5;${color}m%}"
 done
 
-# Awesome module for batch renaming files.
+# Module for batch renaming files.
 autoload -U zmv
 
 function git_current_branch() {
@@ -95,6 +95,7 @@ alias gcm="git commit -m "
 alias gca="git commit --amend"
 alias dd="dd status=progress "
 alias tmux="tmux -u"
+alias reloadzsh=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
 
 # Update config
 
@@ -109,8 +110,6 @@ function dot-update {
   popd > /dev/null
 }
 
-# Example aliases
-alias reloadzsh=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
 
 # Load any extra custom configuration for this machine.
 if [ -d ~/.zshrc-extras ]; then

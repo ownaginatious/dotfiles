@@ -6,7 +6,6 @@ pushd ../common > /dev/null
 popd > /dev/null
 
 # Personal laptop config starts here.
-mkdir -p ~/.zshrc-extras
 mkdir -p ~/.config/{sway,terminator}/
 
 link ./sway/config ~/.config/sway/config
