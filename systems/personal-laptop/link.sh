@@ -16,3 +16,4 @@ link ./keychain.sh ~/.zshrc-extras/keychain.sh
 link ./firefox_wayland.sh ~/.zshrc-extras/firefox_wayland.sh
 link ./env-scripts ~/.env-scripts
 link ./env-scripts-hook.sh ~/.zshrc-extras/env-scripts-hook.sh
+link ./mako.conf ~/.config/mako/config
