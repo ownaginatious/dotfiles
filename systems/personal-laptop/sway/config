@@ -172,6 +172,6 @@ exec swayidle \
     timeout 150 'swaylock -c 34495e' \
     timeout 300 'swaymsg "output * dpms off"' \
      resume 'swaymsg "output * dpms on"' \
-    timeout 600 'systemctl suspend-then-hibernate' \
+    timeout 600 'suspend-if-battery' \
     before-sleep 'swaylock -c 34495e'
 
