@@ -2,6 +2,7 @@
 
 source ../../link.sh
 
+link ./gitignore ~/.gitignore
 link ./mux-gitconfig ~/.gitconfig
 link ./personal-gitconfig ~/git/personal/.gitconfig
 link ./nanorc ~/.nanorc

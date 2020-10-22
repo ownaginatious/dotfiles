@@ -4,3 +4,6 @@
 [includeIf "gitdir:~/git/personal/"]
   path = ~/git/personal/.gitconfig
 
+[core]
+  excludesfile = ~/.gitignore
+
