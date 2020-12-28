@@ -1,2 +1,5 @@
 # Jetbrainz IDE metadata
 .idea/
+
+# Mac OS X files
+.DS_Store
