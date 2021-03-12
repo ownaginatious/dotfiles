@@ -166,12 +166,14 @@ bar {
 
 exec config_egpu_displays && \
      sway output "*" background '#80a9ed' solid_color
+
+# Desktop notifications.
 exec mako
 
+# Automatic screen lock.
 exec swayidle \
     timeout 150 'swaylock -c 34495e' \
     timeout 300 'swaymsg "output * dpms off"' \
-     resume 'swaymsg "output * dpms on"' \
     timeout 600 'suspend-if-battery' \
+    resume 'swaymsg "output * dpms on"' \
     before-sleep 'swaylock -c 34495e'
-
