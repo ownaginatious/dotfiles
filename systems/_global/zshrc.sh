@@ -77,24 +77,6 @@ fi
 
 alias lsa='ls -a'
 
-# Git aliases
-alias ga="git add"
-alias gr="git rm -r"
-alias gd="git diff"
-alias gpl="git pull --no-rebase origin \$(git_current_branch)"
-alias gps="git push origin \$(git_current_branch)"
-alias gst="git status"
-alias gm="git checkout main"
-alias gmu="_b=\$(git_current_branch); gm; gpl; git checkout \${_b}"
-alias gmub="gmu; gm; git checkout -b"
-alias gb="git branch"
-alias gbm="git branch -m"
-alias gbd="git branch -D"
-alias gl="git log"
-alias gcm="git commit -m "
-alias gca="git commit --amend"
-alias dd="dd status=progress "
-alias tmux="tmux -u"
 alias reloadzsh=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
 
 # Update config
@@ -112,9 +94,12 @@ function dot-update {
 
 
 # Load any extra custom configuration for this machine.
-if [ -d ~/.zshrc-extras ]; then
-  find -L ~/.zshrc-extras -type f | while read file
+if [ -d ~/.env ]; then
+  find -L ~/.env -type f | while read file
   do
     source "$file"
   done
 fi
+
+export PATH="${PATH}:~/.scripts"
+

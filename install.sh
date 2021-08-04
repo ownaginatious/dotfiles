@@ -15,7 +15,7 @@ fi
 target="${current}"
 
 if [ ! -z "${1}" ]; then
-  if [ ! -d "${script_dir}/systems/${1}" ]; then
+  if [[ "${1:0:1}" == "_" ]] || [ ! -d "${script_dir}/systems/${1}" ]; then
     echo "${1} is not a valid system type"
     exit 1
   fi
