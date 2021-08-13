@@ -30,7 +30,7 @@ floating_modifier $mod
 bindsym $mod+Return exec terminator 
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+Shift+w kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
@@ -155,7 +155,7 @@ bar {
     status_command i3status -c ~/.config/sway/i3status.conf
 }
 
-exec sway output "*" background '#80a9ed' solid_color
+output "*" background '#80a9ed' solid_color
 
 # Desktop notifications.
 exec mako

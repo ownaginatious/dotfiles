@@ -164,7 +164,7 @@ bar {
     status_command py3status -c ~/.config/sway/py3status.conf
 }
 
-exec sway output "*" background '#80a9ed' solid_color
+output "*" background '#80a9ed' solid_color
 
 # Desktop notifications.
 exec mako
