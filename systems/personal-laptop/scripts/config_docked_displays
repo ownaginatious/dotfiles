@@ -1,7 +1,0 @@
-#!/bin/sh
-sway output DP-4 mode 1920x1080 pos $((3440 - 200)) 0
-sway output DP-2 mode 3440x1440 pos 0 1080
-sway output eDP-1 mode 1920x1080 pos 3440 1080
-sway output "*" background '#80a9ed' solid_color
-pulseaudio -k
-
