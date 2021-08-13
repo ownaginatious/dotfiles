@@ -16,5 +16,5 @@ link ../_shared/mako.conf ~/.config/mako/config
 link ./env ~/.env/personal-laptop
 
 for f in ./scripts/*; do
-  link "./scripts/${f}" "~/.scripts/${f}"
+  link "${f}" "~/.scripts/${f#./scripts/}"
 done
