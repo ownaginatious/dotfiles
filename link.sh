@@ -4,6 +4,10 @@ function error {
   printf "\033[0;31m${1}\033[0m\n"
 }
 
+function realpath {
+  [[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}"
+}
+
 function link {
   source="${1}"
   target="${2}"
