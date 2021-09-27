@@ -9,8 +9,8 @@ function realpath {
 }
 
 function link {
-  source="${1}"
-  target="${2}"
+  source="$(realpath "${1}")"
+  target="$(realpath "${2}")"
 
   if [ -z "${DOT_UNINSTALL}" ]; then
     echo "Creating link [${source}] -> [${target}]"
@@ -27,9 +27,9 @@ function link {
     if [ ! -L "${target}" ]; then
       error " -> !! ${target} exists but is not a symlink! !!"
       return 1
-    elif [ "$(realpath ${source})" != "$(readlink ${target})" ]; then
+    elif [ "${source}" != "$(readlink ${target})" ]; then
       error " -> !! ${target} is a symlink, but does not point to the source !!"
-      error "    [$(realpath ${source})] != [$(readlink ${target})]"
+      error "    [${source}] != [$(readlink ${target})]"
       return 1
     fi
   fi
@@ -41,7 +41,7 @@ function link {
     if [ -e "${target}" ]; then
       echo " -> Already exists"
     else
-      ln -s "$(realpath ${source})" "${target}"
+      ln -s "${source}" "${target}"
       echo " -> Symlink created"
     fi
   fi

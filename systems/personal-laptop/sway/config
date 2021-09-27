@@ -72,6 +72,12 @@ bindsym $mod+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
 
+# Prevent idle inhibiting as long as this view is visible.
+bindsym $mod+Shift+i inhibit_idle open
+
+# Remove any idle inhibitors for this view.
+bindsym $mod+Shift+n inhibit_idle none
+
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
@@ -179,8 +185,8 @@ exec mako
 
 # Automatic screen lock.
 exec swayidle \
-    timeout 150 'swaylock -c 34495e' \
-    timeout 300 'swaymsg "output * dpms off"' \
+    timeout 60 'swaylock -c 34495e' \
+    timeout 120 'swaymsg "output * dpms off"' \
         resume 'swaymsg "output * dpms on"' \
-    timeout 600 'suspend-if-battery' \
+    timeout 300 'suspend-if-battery' \
     before-sleep 'swaylock -c 34495e'
