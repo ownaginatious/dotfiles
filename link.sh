@@ -27,7 +27,7 @@ function link {
     if [ ! -L "${target}" ]; then
       error " -> !! ${target} exists but is not a symlink! !!"
       return 1
-    elif [ "${source}" != "$(readlink ${target})" ]; then
+    elif [ ! "${source}" -ef "$(readlink ${target})" ]; then
       error " -> !! ${target} is a symlink, but does not point to the source !!"
       error "    [${source}] != [$(readlink ${target})]"
       return 1
