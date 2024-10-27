@@ -1,6 +1,0 @@
-[user]
-	name = Dillon Dixon
-	email = git@dillon.io
-[core]
-	autocrlf = input
-	editor = vim
