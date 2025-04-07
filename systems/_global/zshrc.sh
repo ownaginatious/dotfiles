@@ -101,5 +101,5 @@ if [ -d ~/.env ]; then
   done
 fi
 
-export PATH="${PATH}:~/.scripts"
+export PATH="${PATH}:${HOME}/.scripts"
 
