@@ -1,2 +1,0 @@
-# Make feh a usable file viewer in Sway.
-alias feh="feh --scale-down --auto-zoom"

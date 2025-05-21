@@ -4,19 +4,18 @@ set -e
 
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-current=""
+current_dir="${script_dir}/systems/current"
 
-if [ -f "${HOME}/.dot-system" ]; then
-  current="$(cat ${HOME}/.dot-system)"
-else
+if [ ! -e "${current_dir}" ]; then
   echo "No system configuration installed"
   exit 1
 fi
 
 echo "Uninstalling system configuration [${current}]"
 
-pushd "${script_dir}/systems/${current}" > /dev/null
-DOT_UNINSTALL=1 "${script_dir}/systems/${current}/link.sh"
+pushd "${current_dir}" > /dev/null
+DOT_UNINSTALL=1 "${current_dir}/link.sh"
 popd > /dev/null
 
-rm -f "${HOME}/.dot-system"
+rm -f "${current_dir}"
+

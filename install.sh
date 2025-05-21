@@ -5,9 +5,10 @@ set -e
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 current=""
+current_dir="${script_dir}/systems/current"
 
-if [ -f "${HOME}/.dot-system" ]; then
-  current="$(cat ${HOME}/.dot-system)"
+if [ -e "${current_dir}" ]; then
+  current="$(basename $(readlink ${current_dir}))"
   echo "Current system config is [${current}]"
   echo ""
 fi
@@ -27,6 +28,7 @@ if [ "${target}" != "${current}" ] && [ ! -z "${current}" ]; then
   echo ""
   pushd "${script_dir}/systems/${current}" > /dev/null
   DOT_UNINSTALL=1 "${script_dir}/systems/${current}/link.sh"
+  rm "${script_dir}/systems/current"
   popd > /dev/null
   echo ""
 fi
@@ -47,8 +49,9 @@ pushd "${script_dir}/systems/${target}" > /dev/null
 "${script_dir}/systems/${target}/link.sh"
 popd > /dev/null
 
-echo "${target}" > "${HOME}/.dot-system"
+ln -s "${script_dir}/systems/${target}" "${current_dir}"
 
 echo ""
 echo "Done!"
 echo ""
+

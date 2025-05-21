@@ -79,19 +79,6 @@ alias lsa='ls -a'
 
 alias reloadzsh=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
 
-# Update config
-
-function dot-sync {
-  ~/.dotfiles/install.sh "$@"
-}
-
-function dot-update {
-  pushd ~/.dotfiles > /dev/null
-  gmu
-  dot-sync "$@"
-  popd > /dev/null
-}
-
 
 # Load any extra custom configuration for this machine.
 if [ -d ~/.env ]; then
@@ -102,4 +89,13 @@ if [ -d ~/.env ]; then
 fi
 
 export PATH="${PATH}:${HOME}/.scripts"
+
+# Update config
+
+function dot-update {
+  pushd ~/.dotfiles > /dev/null
+  gmu
+  ./install.sh "$@"
+  popd > /dev/null
+}
 

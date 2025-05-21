@@ -41,6 +41,7 @@ function link {
     if [ -e "${target}" ]; then
       echo " -> Already exists"
     else
+      mkdir -p "$(dirname ${target})"
       ln -s "${source}" "${target}"
       echo " -> Symlink created"
     fi
