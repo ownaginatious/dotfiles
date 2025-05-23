@@ -9,6 +9,11 @@
 
   networking.hostName = "heavy-node";
 
+  services.sunshine = {
+    enable = true;
+    autoStart = true;
+  };
+
   services.greetd.settings.default_session = {
     command = "sway";
     user = "dillon";
