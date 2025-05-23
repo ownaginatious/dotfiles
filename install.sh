@@ -42,14 +42,13 @@ if [ "${current}" = "${target}" ]; then
   echo "Updating existing system config [${target}]"
 else
   echo "Installing new system config [${target}]"
+  ln -s "${script_dir}/systems/${target}" "${current_dir}"
 fi
 echo ""
 
 pushd "${script_dir}/systems/${target}" > /dev/null
 "${script_dir}/systems/${target}/link.sh"
 popd > /dev/null
-
-ln -s "${script_dir}/systems/${target}" "${current_dir}"
 
 echo ""
 echo "Done!"
