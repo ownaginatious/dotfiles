@@ -8,6 +8,7 @@
     ];
 
   networking.hostName = "office-terminal";
+  services.avahi.enable = true;
 
   hardware.graphics = {
     enable = true;

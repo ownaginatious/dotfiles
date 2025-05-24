@@ -31,9 +31,9 @@
     greetd = {
       enable = true;
       settings = {
-        default_session = lib.mkDefault {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
-          user = "greeter";
+        default_session = {
+          command = lib.mkDefault "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
+          user = lib.mkDefault "greeter";
         };
       };
     };
