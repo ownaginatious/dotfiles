@@ -31,7 +31,7 @@
     greetd = {
       enable = true;
       settings = {
-        default_session = {
+        default_session = lib.mkDefault {
           command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
           user = "greeter";
         };
@@ -46,6 +46,17 @@
     text = ''
       ${pkgs.flatpak}/bin/flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo || true
     '';
+  };
+
+  xdg = {
+    portal = {
+      config.common.default = "*";
+      enable = true;
+      extraPortals = [
+        pkgs.xdg-desktop-portal-wlr
+        pkgs.xdg-desktop-portal-gtk
+      ];
+    };
   };
 
   users.users.dillon = {
