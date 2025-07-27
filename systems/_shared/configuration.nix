@@ -13,6 +13,8 @@
     firewall.enable = false;
   };
 
+  systemd.network.wait-online.enable = true;
+
   fonts.packages = with pkgs; [
     font-awesome
     noto-fonts
@@ -81,6 +83,7 @@
     tree
     usbutils
     vim
+    waybar
     wget
   ];
 
@@ -89,7 +92,6 @@
       enable = true;
       wrapperFeatures.gtk = true;
     };
-    waybar.enable = true;
     zsh.enable = true;
   };
 }

@@ -22,16 +22,6 @@
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
-  fileSystems."/games" =
-    { device = "/dev/disk/by-label/NIXGAMES";
-      fsType = "ext4";
-    };
-  fileSystems."/scratch" = 
-    {
-     device = "tmpfs";
-     fsType = "tmpfs";
-     options = [ "size=96G" ];
-    };
 
   swapDevices = [ ];
 

@@ -7,25 +7,19 @@
       ../../_shared/configuration.nix
     ];
 
+  networking.hostName = "desktop-vm";
+
   boot.kernelParams = [
-     "video=HDMI-A-1:e"
-     "drm.edid_firmware=HDMI-A-1:edid/fake-edid.bin"
+    "video=DP-1:e"
+    "drm.edid_firmware=DP-1:edid/fake-edid.bin"
   ];
   hardware.firmware = [
-  (
-    pkgs.runCommand "edid.bin" { } ''
-      mkdir -p $out/lib/firmware/edid
-      cp ${/edid/fake-edid.bin} $out/lib/firmware/edid/fake-edid.bin
-    ''
-  )];
-
-  networking.hostName = "heavy-node";
-
-  services.sunshine = {
-    enable = true;
-    autoStart = true;
-    capSysAdmin = true; # Necessary for Wayland.
-  };
+    (
+      pkgs.runCommand "edid.bin" { } ''
+        mkdir -p $out/lib/firmware/edid
+        cp ${/edid/fake-edid.bin} $out/lib/firmware/edid/fake-edid.bin
+      ''
+    )];
 
   services.greetd.settings.default_session = {
     command = "sway";
@@ -44,10 +38,17 @@
     };
   };
 
-  users.users.dillon.extraGroups = lib.mkAfter [
-    "cdrom"
-    "docker"
-  ];
+  services.sunshine = {
+    enable = true;
+    capSysAdmin = true; # Needed for Wayland input support.
+  };
+
+  users.users.dillon = {
+    extraGroups = lib.mkAfter [
+      "cdrom"
+      "docker"
+    ];
+  };
 
   environment.systemPackages = lib.mkAfter (with pkgs; [
     ethtool
@@ -66,16 +67,18 @@
     configDir = "/sync/config";
   };
 
-  # Custom systemd service to enable WoL.
-  systemd.services.enable-wol = {
-    description = "Enable Wake-on-LAN on boot";
-    wantedBy = [ "multi-user.target" ];
+  services.printing.enable = true;
+
+  services.nfs.server = {
+    enable = true;
+    exports = ''
+      /home/dillon/usb-host-share usb-host.inf(rw,sync,no_subtree_check,fsid=0,no_root_squash)
+    '';
+  };
+
+  systemd.services.nfs-server = {
+    wants = [ "network-online.target" ];
     after = [ "network-online.target" ];
-    requires = [ "network-online.target" ];
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = "/run/current-system/sw/bin/ethtool -s enp5s0 wol g";
-    };
   };
 
   virtualisation.docker.enable = true;
