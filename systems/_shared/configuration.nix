@@ -76,9 +76,11 @@
     git
     gnome-themes-extra # Needed to persuade apps into dark mode.
     htop
+    kitty
     libnotify
     librewolf
     mako
+    mpv
     pavucontrol
     tree
     usbutils
